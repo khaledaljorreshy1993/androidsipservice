@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>com.colibria.android.sipservice</groupId>
+        <artifactId>parent-project</artifactId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.colibria.android.sipservice</groupId>
+    <artifactId>comp-util</artifactId>
+    <version>1.0</version>
+    <name>Android Project - utils</name>
+    <description>Android Project - utils</description>
+
+    <developers>
+        <developer>
+            <id>dehne</id>
+            <name>Sebastian Dehne</name>
+            <email>dehne@colibria.com</email>
+            <organization>Colibria AS</organization>
+            <organizationUrl>http://www.colibria.com/</organizationUrl>
+            <roles>
+                <role>Java Developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+   <dependencies>
+
+       <dependency>
+           <groupId>com.android</groupId>
+           <artifactId>android</artifactId>
+           <version>${android.sdk.platform.version}</version>
+           <scope>system</scope>
+           <systemPath>${env.ANDROID_SDK}/platforms/android-${android.sdk.platform.version}/android.jar</systemPath>
+       </dependency>
+
+    </dependencies>
+
+</project>

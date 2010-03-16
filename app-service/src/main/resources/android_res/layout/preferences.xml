@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:key="first_preferencescreen">
+    <PreferenceCategory android:title="Service status">
+        <CheckBoxPreference
+                android:id="@+id/prefEnableService"
+                android:key="prefEnableService"
+                android:title="Service enabled"
+                android:summaryOff="Service is off"
+                android:summaryOn="Service tries to stay connected"
+                />
+        <Preference
+                android:id="@+id/prefServiceStatus"
+                android:key="prefServiceStatus"
+                android:title="Current Service Status"
+                android:name=""
+                android:enabled="false"
+                />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Settings">
+        <EditTextPreference
+                android:id="@+id/prefDisplayName"
+                android:key="prefDisplayName"
+                android:title="Display Name"
+                android:name="EditText Preference"
+                android:inputType="textPersonName"
+                />
+        <EditTextPreference
+                android:id="@+id/prefSipUri"
+                android:key="prefSipUri"
+                android:title="SIP uri"
+                android:name="EditText Preference"
+                android:inputType="textUri"
+                />
+        <EditTextPreference
+                android:id="@+id/prefTelUri"
+                android:key="prefTelUri"
+                android:title="TEL uri"
+                android:name="EditText Preference"
+                android:inputType="textUri"
+                />
+        <EditTextPreference
+                android:id="@+id/prefConferenceFacUri"
+                android:key="prefConferenceFacUri"
+                android:title="Conference Factory URI"
+                android:name="EditText Preference"
+                android:inputType="textUri"
+                />
+        <EditTextPreference
+                android:id="@+id/prefUsername"
+                android:key="prefUsername"
+                android:title="Auth username"
+                android:name="EditText Preference"
+                android:inputType="textNoSuggestions"
+                />
+        <EditTextPreference
+                android:id="@+id/prefPassword"
+                android:key="prefPassword"
+                android:title="Auth password"
+                android:name="EditText Preference"
+                android:password="true"
+                android:inputType="textPassword"
+                />
+        <EditTextPreference
+                android:id="@+id/prefSipProxyHost"
+                android:key="prefSipProxyHost"
+                android:title="SIP proxy hostname"
+                android:name="EditText Preference"
+                android:inputType="textNoSuggestions"
+                />
+        <EditTextPreference
+                android:id="@+id/prefSipProxyPort"
+                android:key="prefSipProxyPort"
+                android:title="SIP proxy port"
+                android:name="EditText Preference"
+                android:inputType="number"
+                />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Misc">
+        <Preference
+                android:id="@+id/prefVersion"
+                android:key="prefVersion"
+                android:title="Version information"
+                android:name=""
+                android:enabled="false"
+                />
+    </PreferenceCategory>
+</PreferenceScreen>
