@@ -1,3 +1,4 @@
+#labels Featured
 =TCP transport=
 The SIP- and MSRP-stack included in this project use the common module "comp-tcp-tl" which provides the transport layer based on TCP. This module is implemented such that it only supports outbound connections (thus doesn't listen on any port for incoming connections) because those stack's are intended to be used for clients only which are behind NAT in most cases. UDP is NAT unfriendly and is therefore not included at all. If UDP would have been used behind NAT, then the client would have to send keep-alives frequently to keep the NAT context open (in order to be able to receive new requests from the server) which would drain the device's battery. So we didn't even bother adding UDP support.
 
