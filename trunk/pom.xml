@@ -33,7 +33,7 @@
     </licenses>
 
     <properties>
-        <android.sdk.platform.version>2.1</android.sdk.platform.version>
+        <android.sdk.platform.apilevel>8</android.sdk.platform.apilevel>
     </properties>
 
     <scm>
@@ -59,7 +59,7 @@
 
         <module>comp-util</module>
 
-	<!-- the included maven plugin, needed to deploy the app on android -->
+        <!-- the included maven plugin, needed to deploy the app on android -->
         <module>misc-android-maven-plugin</module>
     </modules>
 
@@ -109,7 +109,7 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>3.8.1</version>      
+                <version>3.8.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -10,7 +10,7 @@
     <groupId>com.colibria.android.sipservice</groupId>
     <artifactId>app-service</artifactId>
     <version>1.0</version>
-    
+
     <name>Android Project - SIP service application</name>
     <description>Android Project - SIP service application</description>
 
@@ -112,9 +112,9 @@
         <dependency>
             <groupId>com.android</groupId>
             <artifactId>android</artifactId>
-            <version>${android.sdk.platform.version}</version>
+            <version>${android.sdk.platform.apilevel}</version>
             <scope>system</scope>
-            <systemPath>${env.ANDROID_SDK}/platforms/android-${android.sdk.platform.version}/android.jar</systemPath>
+            <systemPath>${env.ANDROID_SDK}/platforms/android-${android.sdk.platform.apilevel}/android.jar</systemPath>
         </dependency>
 
     </dependencies>

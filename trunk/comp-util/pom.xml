@@ -38,15 +38,15 @@
         </plugins>
     </build>
 
-   <dependencies>
+    <dependencies>
 
-       <dependency>
-           <groupId>com.android</groupId>
-           <artifactId>android</artifactId>
-           <version>${android.sdk.platform.version}</version>
-           <scope>system</scope>
-           <systemPath>${env.ANDROID_SDK}/platforms/android-${android.sdk.platform.version}/android.jar</systemPath>
-       </dependency>
+        <dependency>
+            <groupId>com.android</groupId>
+            <artifactId>android</artifactId>
+            <version>${android.sdk.platform.apilevel}</version>
+            <scope>system</scope>
+            <systemPath>${env.ANDROID_SDK}/platforms/android-${android.sdk.platform.apilevel}/android.jar</systemPath>
+        </dependency>
 
     </dependencies>
 
