@@ -49,6 +49,11 @@
             <artifactId>comp-tl-tcp</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.colibria.android.sipservice</groupId>
+            <artifactId>comp-util</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
 </project>

@@ -21,13 +21,14 @@ package com.colibria.android.sipservice.io;
 import com.colibria.android.sipservice.MimeType;
 import com.colibria.android.sipservice.headers.*;
 import com.colibria.android.sipservice.logging.Logger;
+import com.colibria.android.sipservice.parse.ByteParser;
 
 import java.io.EOFException;
 import java.io.IOException;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 
-import static com.colibria.android.sipservice.io.ByteParser.*;
+import static com.colibria.android.sipservice.parse.ByteParser.*;
 
 /**
  * Msrp parser
