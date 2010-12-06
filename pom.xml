@@ -23,6 +23,17 @@
             </roles>
             <timezone>+1</timezone>
         </developer>
+        <developer>
+            <id>gunten</id>
+            <name>Henrik von Gunten</name>
+            <email>gunten@colibria.com</email>
+            <organization>Colibria AS</organization>
+            <organizationUrl>http://www.colibria.com/</organizationUrl>
+            <roles>
+                <role>Java Developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
     </developers>
 
     <licenses>
@@ -104,9 +115,10 @@
 
             <!-- The android artifact is installed in maven repo using https://github.com/mosabua/maven-android-sdk-deployer -->
             <dependency>
-                <groupId>android</groupId>
+                <groupId>com.google.android</groupId>
                 <artifactId>android</artifactId>
-                <version>2.1_r2</version>
+                <version>2.1.2</version>
+                <scope>provided</scope>
             </dependency>
 
             <dependency>
