@@ -41,11 +41,9 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.android</groupId>
+            <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
-            <version>${android.sdk.platform.apilevel}</version>
-            <scope>system</scope>
-            <systemPath>${env.ANDROID_SDK}/platforms/android-${android.sdk.platform.apilevel}/android.jar</systemPath>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
