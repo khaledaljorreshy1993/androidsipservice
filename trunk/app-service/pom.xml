@@ -37,7 +37,7 @@
                   <version>2.8.0</version>
                   <configuration>
                       <sdk>
-                          <platform>8</platform>
+                          <platform>7</platform>
                       </sdk>
                       <deleteConflictingFiles>true</deleteConflictingFiles>
                       <androidManifestFile>src/main/AndroidManifest.xml</androidManifestFile>

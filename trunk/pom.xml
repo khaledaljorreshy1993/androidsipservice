@@ -43,10 +43,6 @@
         </license>
     </licenses>
 
-    <properties>
-        <android.sdk.platform.apilevel>8</android.sdk.platform.apilevel>
-    </properties>
-
     <scm>
         <connection>scm:svn:https://androidsipservice.googlecode.com/svn/trunk</connection>
         <developerConnection>scm:svn:https://androidsipservice.googlecode.com/svn/trunk</developerConnection>
@@ -112,8 +108,7 @@
                 <artifactId>comp-util</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
-            <!-- The android artifact is installed in maven repo using https://github.com/mosabua/maven-android-sdk-deployer -->
+            
             <dependency>
                 <groupId>com.google.android</groupId>
                 <artifactId>android</artifactId>
