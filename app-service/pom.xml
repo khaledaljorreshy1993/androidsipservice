@@ -4,13 +4,14 @@
     <parent>
         <groupId>com.colibria.android.sipservice</groupId>
         <artifactId>parent-project</artifactId>
-        <version>1.0</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.colibria.android.sipservice</groupId>
     <artifactId>app-service</artifactId>
-    <version>1.0</version>
-
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>apk</packaging>
+    
     <name>Android Project - SIP service application</name>
     <description>Android Project - SIP service application</description>
 
@@ -27,56 +28,23 @@
             <timezone>+1</timezone>
         </developer>
     </developers>
-
+                                             3
     <build>
         <plugins>
             <plugin>
-                <groupId>com.colibria.android.sipservice</groupId>
-                <artifactId>misc-android-maven-plugin</artifactId>
-                <version>${project.version}</version>
-                <configuration>
-                    <deployOn>${env.DEPLOY_ON}</deployOn>
-                    <keyStore>${env.HOME}/.android/debug.keystore</keyStore>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>gen_res</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>gen_res</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>pkg_res</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>pkg_res</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>dex</id>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>dex</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>pkg_app</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>pkg_app</goal>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>deploy</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+                  <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                  <artifactId>maven-android-plugin</artifactId>
+                  <version>2.8.0</version>
+                  <configuration>
+                      <sdk>
+                          <platform>8</platform>
+                      </sdk>
+                      <deleteConflictingFiles>true</deleteConflictingFiles>
+                      <androidManifestFile>src/main/AndroidManifest.xml</androidManifestFile>
+                      <resourceDirectory>src/main/resources</resourceDirectory>
+                  </configuration>
+                  <extensions>true</extensions>
+              </plugin>
 
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -110,11 +78,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.android</groupId>
+            <groupId>android</groupId>
             <artifactId>android</artifactId>
-            <version>${android.sdk.platform.apilevel}</version>
-            <scope>system</scope>
-            <systemPath>${env.ANDROID_SDK}/platforms/android-${android.sdk.platform.apilevel}/android.jar</systemPath>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

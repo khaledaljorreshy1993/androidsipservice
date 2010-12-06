@@ -5,7 +5,7 @@
     <groupId>com.colibria.android.sipservice</groupId>
     <artifactId>parent-project</artifactId>
     <packaging>pom</packaging>
-    <version>1.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>Android Project - parent</name>
     <description>Android Project - parent</description>
     <url>http://code.google.com/p/androidsipservice/</url>
@@ -58,9 +58,6 @@
         <module>comp-msrpstack</module>
 
         <module>comp-util</module>
-
-        <!-- the included maven plugin, needed to deploy the app on android -->
-        <module>misc-android-maven-plugin</module>
     </modules>
 
     <build>
@@ -105,6 +102,12 @@
                 <version>${project.version}</version>
             </dependency>
 
+            <!-- The android artifact is installed in maven repo using https://github.com/mosabua/maven-android-sdk-deployer -->
+            <dependency>
+                <groupId>android</groupId>
+                <artifactId>android</artifactId>
+                <version>2.1_r2</version>
+            </dependency>
 
             <dependency>
                 <groupId>junit</groupId>
