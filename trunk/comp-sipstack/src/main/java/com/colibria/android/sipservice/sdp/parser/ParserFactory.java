@@ -42,7 +42,7 @@ public class ParserFactory {
 
     private static Class getParser(String parserClass) {
         try {
-            return Class.forName("com.colibria.androidclient.sdp.parser" + "." + parserClass);
+            return Class.forName("com.colibria.android.sipservice.sdp.parser" + "." + parserClass);
         } catch (ClassNotFoundException ex) {
             System.out.println("Could not find class");
             ex.printStackTrace();
