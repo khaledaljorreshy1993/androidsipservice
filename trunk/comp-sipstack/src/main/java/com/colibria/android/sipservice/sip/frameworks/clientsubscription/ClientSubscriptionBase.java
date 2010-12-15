@@ -412,7 +412,7 @@ public abstract class ClientSubscriptionBase extends Machine<Signal> implements 
             @Override
             public void activity(ClientSubscriptionBase machine, Signal signal) throws TransitionActivityException {
                 if (Logger.isLoggable(Logger.Level.DEBUG, TAG)) {
-                    Logger.d(TAG, "Killing this subsription");
+                    Logger.d(TAG, "Killing this subcsription");
                 }
                 machine.terminatedReason = TerminatedReason.timeout;
             }
@@ -693,12 +693,11 @@ public abstract class ClientSubscriptionBase extends Machine<Signal> implements 
 
     }
 
-
     private void setAbsolutRefreshTime(long expires) {
         refreshTime = System.currentTimeMillis() + expires * 1000 - SAFE_TIME;
     }
 
-    private long getCurrentRelativeRefreshTime() {
+    public long getCurrentRelativeRefreshTime() {
         return refreshTime - System.currentTimeMillis();
     }
 
