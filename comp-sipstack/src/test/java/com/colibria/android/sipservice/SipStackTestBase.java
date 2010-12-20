@@ -16,13 +16,16 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package com.colibria.android.sipservice.sip;
+package com.colibria.android.sipservice;
 
 import com.colibria.android.sipservice.ITcpConnectionListener;
 import com.colibria.android.sipservice.TcpConnection;
 import com.colibria.android.sipservice.TcpController;
 import com.colibria.android.sipservice.logging.Logger;
 import com.colibria.android.sipservice.logging.TestLogger;
+import com.colibria.android.sipservice.sip.ISipStackListener;
+import com.colibria.android.sipservice.sip.ISipTcpConnectionProvider;
+import com.colibria.android.sipservice.sip.SipStack;
 import com.colibria.android.sipservice.threadpool.ThreadPool;
 import junit.framework.TestCase;
 

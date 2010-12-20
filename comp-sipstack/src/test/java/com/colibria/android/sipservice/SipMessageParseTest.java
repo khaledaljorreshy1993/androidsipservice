@@ -19,7 +19,6 @@
 package com.colibria.android.sipservice;
 
 import com.colibria.android.sipservice.logging.Logger;
-import com.colibria.android.sipservice.sip.SipStackTestBase;
 import com.colibria.android.sipservice.sip.ISipStackListener;
 import com.colibria.android.sipservice.sip.messages.Request;
 import com.colibria.android.sipservice.sip.messages.SipMessage;

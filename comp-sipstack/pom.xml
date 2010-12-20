@@ -39,11 +39,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>com.colibria.android.sipservice</groupId>
             <artifactId>comp-tl-tcp</artifactId>
         </dependency>
@@ -52,6 +47,12 @@
             <groupId>com.colibria.android.sipservice</groupId>
             <artifactId>comp-util</artifactId>
         </dependency>
-    </dependencies>                           
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>
