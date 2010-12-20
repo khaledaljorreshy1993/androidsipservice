@@ -51,6 +51,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *
  * @author Sebastian Dehne
  */
+@SuppressWarnings({"UnusedDeclaration"})
 public class SipService extends Service implements ISipStackListener, ISipTcpConnectionProvider, ITransactionRepositoryListener {
     private static final String TAG = "SipService";
 
@@ -190,7 +191,7 @@ public class SipService extends Service implements ISipStackListener, ISipTcpCon
         if (mIsRunning.compareAndSet(false, true)) {
             SipStack.get().setLocalAddress(mPrefs.getString(PREF_NAME_LOCAL_HOST_ADDRESS, null));
 
-            mSipConnection = mTcpController.createNewManagedConnection(new InetSocketAddress(mPrefs.getString(PREF_NAME_SIP_PROXY_HOST, null), mPrefs.getInt(PREF_NAME_SIP_PROXY_PORT, -1)), new ITcpConnectionListener() {
+            mSipConnection = mTcpController.createNewManagedConnection(mPrefs.getString(PREF_NAME_SIP_PROXY_HOST, null), mPrefs.getInt(PREF_NAME_SIP_PROXY_PORT, -1), new ITcpConnectionListener() {
 
                 int keepAliveCounter = 0;
                 int refreshRegisterInterval = 0;

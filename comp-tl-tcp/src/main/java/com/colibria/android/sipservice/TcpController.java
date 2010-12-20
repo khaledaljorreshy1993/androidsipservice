@@ -146,13 +146,13 @@ public class TcpController extends Thread {
         }
     }
 
-    public TcpConnection createNewManagedConnection(InetSocketAddress remoteSocketAddress, ITcpConnectionListener listener) {
-        Logger.d(TAG, "createNewManagedConnection() - isRunning=" + isRunning + ", remoteSocketAddress=" + remoteSocketAddress);
+    public TcpConnection createNewManagedConnection(String remoteHostname, int remotePort, ITcpConnectionListener listener) {
+        Logger.d(TAG, "createNewManagedConnection() - isRunning=" + isRunning + ", remoteHostname=" + remoteHostname + ", remotePort=" + remotePort);
         if (!isRunning) {
             return null;
         }
 
-        return new TcpConnection(this, mConnectionIdCounter.getAndIncrement(), listener, remoteSocketAddress);
+        return new TcpConnection(this, mConnectionIdCounter.getAndIncrement(), listener, remoteHostname, remotePort);
     }
 
     public void shutdown() {
@@ -215,12 +215,19 @@ public class TcpController extends Thread {
         /*
          * Connect now
          */
-        Logger.d(TAG, "About to establish a new connection to " + connection.getRemoteAddress());
+        InetSocketAddress remoteSocketAddress = connection.getRemoteAddress();
+        Logger.d(TAG, "About to establish a new connection to " + remoteSocketAddress);
+        if (remoteSocketAddress.isUnresolved()) {
+            Logger.i(TAG, "Could not resolve hostname - connect failed");
+            connection.mHiddenListener.connectFailed();
+            return;
+        }
+
         SocketChannel sc = null;
         try {
             sc = SocketChannel.open();
             sc.configureBlocking(false);
-            if (sc.connect(connection.getRemoteAddress())) {
+            if (sc.connect(remoteSocketAddress)) {
                 finishedConnect(sc, connection);
             } else {
                 synchronized (this) {
@@ -238,6 +245,7 @@ public class TcpController extends Thread {
     }
 
     protected void closeConnection(SocketChannel mSocketChannel) {
+        Logger.d(TAG, "closing connection");
         closeChannel(mSocketChannel);
     }
 
@@ -316,10 +324,15 @@ public class TcpController extends Thread {
         SocketChannel sc = (SocketChannel) key.channel();
         SelectionKeyAttachment attachment = (SelectionKeyAttachment) key.attachment();
         try {
-            if (sc.read(attachment.readBuffer) >= 0) {
+            if (sc.read(attachment.readBuffer) != -1) {
                 Logger.d(TAG, "read " + attachment.readBuffer.position() + " bytes");
-                attachment.connection.mHiddenListener.dataReceived(attachment.readBuffer);
+                if (attachment.readBuffer.position() > 0) {
+                    attachment.connection.mHiddenListener.dataReceived(attachment.readBuffer);
+                } else {
+                    Logger.d(TAG, "read ignore since 0 bytes was read");
+                }
             } else {
+                Logger.d(TAG, "read got -1, closing channel");
                 closeChannel(sc);
                 attachment.connection.mHiddenListener.connectionLost();
             }
