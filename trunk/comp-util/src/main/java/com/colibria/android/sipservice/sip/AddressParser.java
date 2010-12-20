@@ -198,7 +198,7 @@ public class AddressParser {
                 if (nextChar == '\r' || (isListHeader && nextChar == ',')) {
                     bb.position(bb.position() - 1);
                 } else {
-                    throw new IOException("Unexpected prolog " + nextChar);
+                    throw new IOException("Unexpected prolog. Next char='" + (char)nextChar + "'");
                 }
 
                 break;

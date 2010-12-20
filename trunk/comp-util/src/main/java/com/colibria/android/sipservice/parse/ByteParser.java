@@ -353,7 +353,7 @@ public class ByteParser {
                     break;
 
                 case UNDEF: // '\0'
-                    throw new IOException((new StringBuilder()).append("Unexpected byte : ").append(b).append(" (character=").append((char) b).append(")").toString());
+                    throw new IOException((new StringBuilder()).append("Unexpected byte : ").append(b).append(" (character='").append((char) b).append("')").toString());
             }
         } while (true);
     }

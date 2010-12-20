@@ -40,7 +40,7 @@ public class Address implements Comparable<Address>, Serializable {
             a.parseMoreData(ByteBuffer.wrap((input + "\r").getBytes()));
             return new Address(a.getUri(), a.getDisplayName(), a.getParameters());
         } catch (IOException e) {
-            Logger.e(TAG, "Parse error", e);
+            Logger.e(TAG, "Parse error. Input='" + input + "'", e);
         }
         return null;
     }

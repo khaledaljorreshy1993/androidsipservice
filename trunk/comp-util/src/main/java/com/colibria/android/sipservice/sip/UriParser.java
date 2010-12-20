@@ -79,6 +79,7 @@ public class UriParser {
         PATTERN_URI_STRING.setWordCharacter('%');
         PATTERN_URI_STRING.setWordCharacter('!');
         PATTERN_URI_STRING.setWordCharacter('.'); // todo add more
+        PATTERN_URI_STRING.setWordCharacter('-');
         PATTERN_URI_STRING.setDelimiterCharacter('@');
         PATTERN_URI_STRING.setDelimiterCharacter(':');
         PATTERN_URI_STRING.setDelimiterCharacter(';'); // parameters start
@@ -356,12 +357,13 @@ public class UriParser {
         } else if ("sip".equals(scheme)) {
             this.scheme = URI.Type.sip;
         } else {
-            throw new IOException("Unexpected scheme");
+            throw new IOException("Unexpected scheme: " + scheme);
         }
 
         // jump over the expected ':'
-        if (bp.read(bb, PATTERN_URI_SCHEME) != ':') {
-            throw new IOException("Unexpected prolog");
+        int c;
+        if ((c = bp.read(bb, PATTERN_URI_SCHEME)) != ':') {
+            throw new IOException("Unexpected prolog. Expected ':' after scheme part. Found '" + c + "'");
         }
 
         lastBufferPosition = bb.position();
