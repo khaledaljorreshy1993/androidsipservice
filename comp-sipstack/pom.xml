@@ -3,12 +3,12 @@
     <parent>
         <groupId>com.colibria.android.sipservice</groupId>
         <artifactId>androidsipservice-parent-project</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.colibria.android.sipservice</groupId>
     <artifactId>comp-sipstack</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>Android Project - SIP stack</name>
     <description>Android Project - SIP stack</description>
 
