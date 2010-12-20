@@ -242,7 +242,7 @@ public class SipMessageParser {
             int i = bb.get();
             if (i == '\r') {
                 if (bb.get() != '\n')
-                    throw new IOException("Unexpected prolog");
+                    throw new IOException("Unexpected prolog. Got '\\r\\n' while parsing headers.");
             } else if (i == ',' && parseState.currentHeaderParser.isListedHeader()) {
                 listedHeaderFound = true;
             } else if (parseState.currentHeaderParser.isListedHeader()) {
