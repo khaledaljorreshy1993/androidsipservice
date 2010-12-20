@@ -87,11 +87,13 @@ public class SipStack {
         return transactionRepository;
     }
 
+    @SuppressWarnings({"UnusedDeclaration"})
     public InetSocketAddress getLocalSocketAddress() {
         return mLocalAddress;
     }
 
     public void setLocalAddress(InetSocketAddress mLocalAddress) {
+        Logger.d(TAG, "setLocalAddress() " + mLocalAddress.toString());
         this.mLocalAddress = mLocalAddress;
     }
 
@@ -207,7 +209,7 @@ public class SipStack {
     }
 
     public int getMyPort() {
-        return -1; // will suppress the port, thus using the default port 
+        return -1; // will suppress the port, thus using the default port
     }
 
 }

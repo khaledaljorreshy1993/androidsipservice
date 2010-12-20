@@ -75,7 +75,7 @@ public class SipStackTestBase extends TestCase implements ISipTcpConnectionProvi
         // establish the managed connection
         final LinkedBlockingQueue<Boolean> sync = new LinkedBlockingQueue<Boolean>();
         tcpController = TcpController.createPreStartedController(threadPool);
-        connection = tcpController.createNewManagedConnection(new InetSocketAddress(dstHst, dstPort), new ITcpConnectionListener() {
+        connection = tcpController.createNewManagedConnection(dstHst, dstPort, new ITcpConnectionListener() {
             @Override
             public void dataReceived(ByteBuffer mReadBuffer) {
                 SipStack.get().dataReceived(mReadBuffer);

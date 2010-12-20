@@ -81,6 +81,7 @@ public class ChannelState implements ITcpConnectionListener {
         return state;
     }
 
+    @SuppressWarnings({"UnusedDeclaration"})
     protected void remove(InetSocketAddress key) {
         states.remove(key);
     }
@@ -253,7 +254,7 @@ public class ChannelState implements ITcpConnectionListener {
                     Logger.d(TAG, "Changing state to available");
                 }
                 lifeCycleState = LifeState.available;
-                tcpConnection = parentInstance.getController().createNewManagedConnection(targetHost, this);
+                tcpConnection = parentInstance.getController().createNewManagedConnection(targetHost.getHostName(), targetHost.getPort(), this);
                 tcpConnection.reconnect();
             }
         } else {
@@ -368,6 +369,7 @@ public class ChannelState implements ITcpConnectionListener {
 
     @Override
     public void sendKeepAliveNow() {
+        //noinspection LoopStatementThatDoesntLoop
         for (Participant p : participants.values()) {
             p.sendKeepAlive();
             break; // we only need one keep-alive per TCP-connection

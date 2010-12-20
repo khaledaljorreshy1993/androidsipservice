@@ -43,15 +43,17 @@ public class TcpConnection {
     private final int id;
     private final ITcpConnectionListener mListener;
     private final TcpController mParent;
-    private final InetSocketAddress mRemoteAddress;
+    private final String remoteHostname;
+    private final int remotePort;
     private final ConcurrentLinkedQueue<WriteTask> mWriteQueue;
     private final AtomicBoolean mIsClosed;
     protected final ITcpSocketListener mHiddenListener;
     private volatile SocketChannel mSocketChannel;
 
-    protected TcpConnection(TcpController parent, int id, ITcpConnectionListener listener, InetSocketAddress mRemoteAddress) {
+    protected TcpConnection(TcpController parent, int id, ITcpConnectionListener listener, String remoteHostname, int remotePort) {
         this.id = id;
-        this.mRemoteAddress = mRemoteAddress;
+        this.remoteHostname = remoteHostname;
+        this.remotePort = remotePort;
         this.mListener = listener;
         this.mParent = parent;
         this.mWriteQueue = new ConcurrentLinkedQueue<WriteTask>();
@@ -105,7 +107,9 @@ public class TcpConnection {
     }
 
     public InetSocketAddress getRemoteAddress() {
-        return mRemoteAddress;
+        InetSocketAddress addr = new InetSocketAddress(remoteHostname, remotePort);
+        Logger.d(TAG, "remoteHostname=" + remoteHostname + ", remotePort=" + remotePort + ", addr=" + addr);
+        return addr;
     }
 
     public InetSocketAddress getLocalSocketAddress() {
@@ -145,6 +149,7 @@ public class TcpConnection {
         // do we need to re-connect?
         SocketChannel sc = mSocketChannel;
         if (sc == null) {
+            Logger.d(TAG, "SocketChannel was null - reconnecting");
             reconnect(); // note: this clears the writeQueue as well
         }
 
