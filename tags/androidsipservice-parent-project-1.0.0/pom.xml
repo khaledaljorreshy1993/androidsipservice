@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.colibria.android.sipservice</groupId>
+    <artifactId>androidsipservice-parent-project</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <name>Android Project - parent</name>
+    <description>Android Project - parent</description>
+    <url>http://code.google.com/p/androidsipservice/</url>
+    <inceptionYear>2009</inceptionYear>
+
+    <developers>
+        <developer>
+            <id>dehne</id>
+            <name>Sebastian Dehne</name>
+            <email>dehne@colibria.com</email>
+            <organization>Colibria AS</organization>
+            <organizationUrl>http://www.colibria.com/</organizationUrl>
+            <roles>
+                <role>Java Developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+        <developer>
+            <id>gunten</id>
+            <name>Henrik von Gunten</name>
+            <email>gunten@colibria.com</email>
+            <organization>Colibria AS</organization>
+            <organizationUrl>http://www.colibria.com/</organizationUrl>
+            <roles>
+                <role>Java Developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>GNU GENERAL PUBLIC LICENSE, version 2</name>
+            <url>LICENSE</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:svn:https://androidsipservice.googlecode.com/svn/tags/androidsipservice-parent-project-1.0.0</connection>
+        <developerConnection>scm:svn:https://androidsipservice.googlecode.com/svn/tags/androidsipservice-parent-project-1.0.0</developerConnection>
+    </scm>
+
+    <organization>
+        <name>Colibria AS</name>
+        <url>http://www.colibria.com/</url>
+    </organization>
+
+    <modules>
+        <!-- Android app: background service -->
+        <module>app-service</module>
+
+        <!-- shared artifact containing the TCP transport layer -->
+        <module>comp-tl-tcp</module>
+
+        <!-- the protocol stacks -->
+        <module>comp-sipstack</module>
+        <module>comp-msrpstack</module>
+
+        <module>comp-util</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.0-beta-9</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>com.colibria.android.sipservice</groupId>
+                <artifactId>comp-tl-tcp</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.colibria.android.sipservice</groupId>
+                <artifactId>comp-sipstack</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.colibria.android.sipservice</groupId>
+                <artifactId>comp-msrpstack</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.colibria.android.sipservice</groupId>
+                <artifactId>comp-util</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>com.google.android</groupId>
+                <artifactId>android</artifactId>
+                <version>2.1.2</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>3.8.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sip Settings</string>
+    <string name="service_status_unconfigured">Service is unconfigured</string>
+    <string name="service_status_unconfigured_error">Invalid config - %s</string>
+    <string name="service_status_disabled">Service is disabled</string>
+    <string name="service_status_connecting">Connecting...</string>
+    <string name="service_status_connected">Connected, registering...</string>
+    <string name="service_status_registered">Connected &amp; registered.</string>
+
+    <string name="presence_status_disabled">Presence is disabled</string>
+    <string name="presence_status_subscribing">Subscribing...</string>
+    <string name="presence_status_subscribed">Subscribed.</string>
+    
+    <string name="config_invalid_display_name">Invalid display name</string>
+    <string name="config_invalid_sip_uri">Invalid sip-uri</string>
+    <string name="config_invalid_tel_uri">Invalid tel-uri</string>
+    <string name="config_invalid_conf_fac">Invalid conference fac. uri</string>
+    <string name="config_invalid_proxy_host">Invalid SIP proxy host</string>
+    <string name="config_invalid_proxy_port">Invalid SIP proxy port</string>
+    <string name="config_invalid_auth_username">Invalid Auth username</string>
+    <string name="config_invalid_auth_password">Invalid Auth password</string>
+
+</resources>
